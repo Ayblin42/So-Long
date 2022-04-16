@@ -12,6 +12,9 @@ SRCS        =   so_long.c \
 				is_valid_map.c \
 				init_map.c \
 				moove.c \
+				trap.c \
+				gob.c \
+				gob_moove.c \
 
 OBJS        =    ${SRCS:.c=.o}
 

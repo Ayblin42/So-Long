@@ -1,8 +1,9 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 # define READ_SIZE 1
-# define FRAME_RATE 1000
-# define FRAME 12
+# define FRAME_RATE 3000
+# define TRAP_RATE 25
+# define FRAME 1536
 
 # include <sys/types.h>
 # include <sys/stat.h>
@@ -17,11 +18,6 @@ typedef struct s_long
 {
 	char 	*map;
 	char 	**maptab;
-	void	*img_wall;
-	void	*img_tile;
-	void	*img_exit;
-	void	*img_man;
-	void	*img_item;
 	void 	*mlx_ptr;
     void 	*win_ptr;
 	int		width;
@@ -31,7 +27,19 @@ typedef struct s_long
 	int		item;
 	int		item_nb;
 	int		rate;
+	int		gob_rate;
 	int		frame;
+	int		ori;
+
+	void	*img_wall;
+	void	*img_tile;
+	void	*img_exit;
+	void	*img_item;
+	void	*man[12];
+	void	*gob[12];
+	int		gob_ori;
+	int		gob_nb;
+	void	*trap[8];
 }	t_long;
 
 int		ft_strlen(char *str);
@@ -45,5 +53,14 @@ void	moove_up(t_long *m);
 void	moove_down(t_long *m);
 void	moove_right(t_long *m);
 void	moove_left(t_long *m);
+void	trap(t_long *m);
+void	gob_display(t_long *m);
+void	moove_trap(t_long *m);
+int		is_charset(char c, char *str);
+
+void	gob_moove_up(t_long *m, int i, int j);
+void	gob_moove_down(t_long *m, int i, int j);
+void	gob_moove_right(t_long *m, int i, int j);
+void	gob_moove_left(t_long *m, int i, int j);
 
 #endif

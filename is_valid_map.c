@@ -6,7 +6,7 @@
 /*   By: ayblin <ayblin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 17:16:55 by ayblin            #+#    #+#             */
-/*   Updated: 2022/04/15 14:02:22 by ayblin           ###   ########.fr       */
+/*   Updated: 2022/04/16 09:36:46 by ayblin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	is_valid_map(char *map, char **maptab, t_long *m)
 	len = ft_strlen(maptab[0]);
 	while (map[i])
 	{
-		if (!is_charset(map[i], "01CEP\n"))
+		if (!is_charset(map[i], "01CEPXG\n"))
 			return (0);
 		if (map[i] == 'P')
 		{
@@ -73,6 +73,8 @@ int	is_valid_map(char *map, char **maptab, t_long *m)
 			m->y = i / (len + 1);
 			p++;
 		}
+		if (map[i] == 'G')
+			m->gob_nb++;
 		if (map[i] == 'C')
 			m->item_nb++;
 		i++;

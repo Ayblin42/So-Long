@@ -6,7 +6,7 @@
 /*   By: ayblin <ayblin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 05:58:24 by ayblin            #+#    #+#             */
-/*   Updated: 2022/04/15 13:38:59 by ayblin           ###   ########.fr       */
+/*   Updated: 2022/04/16 09:23:00 by ayblin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ void	put_image(char c, int i, int j, t_long *m)
 		mlx_put_image_to_window(m->mlx_ptr, m->win_ptr,m->img_exit, j * 32, i * 32);
 	if (c == 'C')
 		mlx_put_image_to_window(m->mlx_ptr, m->win_ptr,m->img_item, j * 32, i * 32);
-	if (c == 'P')
-		mlx_put_image_to_window(m->mlx_ptr, m->win_ptr,m->img_man, j * 32, i * 32);
 }
 
 void	init_map(t_long *m)
