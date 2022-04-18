@@ -9,12 +9,16 @@ SRCS        =   so_long.c \
 				utils/ft_strlen.c \
 				utils/ft_split.c \
 				utils/ft_putstr.c \
+				utils/ft_itoa.c \
 				is_valid_map.c \
 				init_map.c \
 				moove.c \
 				trap.c \
 				gob.c \
 				gob_moove.c \
+				gob_display.c \
+				game_over.c \
+				get_image.c \
 
 OBJS        =    ${SRCS:.c=.o}
 

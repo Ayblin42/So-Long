@@ -6,13 +6,13 @@
 /*   By: ayblin <ayblin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 15:05:15 by ayblin            #+#    #+#             */
-/*   Updated: 2022/04/10 15:05:35 by ayblin           ###   ########.fr       */
+/*   Updated: 2022/04/17 13:38:12 by ayblin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] != '\0')

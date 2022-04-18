@@ -6,7 +6,7 @@
 /*   By: ayblin <ayblin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 17:16:55 by ayblin            #+#    #+#             */
-/*   Updated: 2022/04/16 09:36:46 by ayblin           ###   ########.fr       */
+/*   Updated: 2022/04/17 14:25:05 by ayblin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	is_charset(char c, char *str)
 	int	i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
 		if (str[i] == c)
 			return (1);
@@ -30,7 +30,7 @@ int	wall_check(char **maptab, int len, t_long *m)
 {
 	int	i;
 	int	y;
-	
+
 	i = 0;
 	while (maptab[i])
 	{
@@ -43,9 +43,9 @@ int	wall_check(char **maptab, int len, t_long *m)
 	m->height = i * 32;
 	i--;
 	y = 0;
-	while(maptab[0][y])
+	while (maptab[0][y])
 	{
-		if(maptab[0][y] !=  '1' ||maptab[i][y] !=  '1' )
+		if (maptab[0][y] != '1' || maptab[i][y] != '1' )
 			return (0);
 		y++;
 	}
@@ -79,7 +79,7 @@ int	is_valid_map(char *map, char **maptab, t_long *m)
 			m->item_nb++;
 		i++;
 	}
-	if (p != 1 )
+	if (p != 1)
 		return (0);
 	m->width = len * 32;
 	if (!wall_check(maptab, len, m))
