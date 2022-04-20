@@ -6,7 +6,7 @@
 /*   By: ayblin <ayblin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 05:58:24 by ayblin            #+#    #+#             */
-/*   Updated: 2022/04/17 14:24:39 by ayblin           ###   ########.fr       */
+/*   Updated: 2022/04/20 14:30:29 by ayblin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,16 @@ void	init_map(t_long *m)
 	}
 	m->maptab[m->y][m->x] = '0';
 	mlx_put_image_to_window(m->mlx_ptr, m->win_ptr, m->img_count, 0, 0);
+}
+
+void	init_value(t_long *m)
+{
+	m->rate = 0;
+	m->frame = 0;
+	m->ori = 0;
+	m->gob_ori = 0;
+	m->gob_nb = 0;
+	m->gob_rate = 0;
+	m->end = 0;
+	m->mv_count = 1;
 }

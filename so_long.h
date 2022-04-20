@@ -6,16 +6,17 @@
 /*   By: ayblin <ayblin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 13:50:57 by ayblin            #+#    #+#             */
-/*   Updated: 2022/04/17 14:12:20 by ayblin           ###   ########.fr       */
+/*   Updated: 2022/04/20 15:01:09 by ayblin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
-# define READ_SIZE 1
 # define FRAME_RATE 3000
 # define TRAP_RATE 25
 # define FRAME 1536
+# define HEIGHT_LIMIT 1080
+# define WIDTH_LIMIT 1920
 
 # include <sys/types.h>
 # include <sys/stat.h>
@@ -68,8 +69,10 @@ int		ft_strlen(char *str);
 char	*ft_strjoin(char *s1, char *s2);
 char	**ft_split(char const *s, char c);
 int		ft_putstr(char *str, int ret);
-int		is_valid_map(char *map, char **maptab, t_long *m);
+int		is_valid_map(t_long *m);
+int		iter(t_long *m, int p, int i, int len);
 void	init_map(t_long *m);
+void	init_value(t_long *m);
 void	put_image(char c, int i, int j, t_long *m);
 void	moove_up(t_long *m);
 void	moove_down(t_long *m);
@@ -78,14 +81,20 @@ void	moove_left(t_long *m);
 void	trap_display(t_long *m);
 void	man_display(t_long *m);
 void	gob_display(t_long *m);
-void	moove_trap(t_long *m);
+void	moove_trap(t_long *m, int i, int j, int g);
 int		is_charset(char c, char *str);
 void	game_over(t_long *m);
 void	get_image(t_long *m);
+int		close_window(t_long *m);
+int		close_window2(t_long *m);
 
-void	gob_moove_up(t_long *m, int i, int j);
-void	gob_moove_down(t_long *m, int i, int j);
-void	gob_moove_right(t_long *m, int i, int j);
-void	gob_moove_left(t_long *m, int i, int j);
+void	gob_display_up(t_long *m, int i, int j);
+void	gob_display_down(t_long *m, int i, int j);
+void	gob_display_right(t_long *m, int i, int j);
+void	gob_display_left(t_long *m, int i, int j);
+void	gob_up(t_long *m, int i, int j);
+void	gob_down(t_long *m, int i, int j);
+void	gob_right(t_long *m, int i, int j);
+void	gob_left(t_long *m, int i, int j);
 
 #endif

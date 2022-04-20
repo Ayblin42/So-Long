@@ -24,7 +24,7 @@ OBJS        =    ${SRCS:.c=.o}
 
 MLX            =    ../minilibx-linux/libmlx_Linux.a
 
-MLXFLAGS    =    -lX11 -lXext
+MLXFLAGS    =    -lX11 -lXext -g3
 
 NAME        =    so_long
 

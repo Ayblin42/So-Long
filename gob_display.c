@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gob_moove.c                                        :+:      :+:    :+:   */
+/*   gob_display.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayblin <ayblin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 09:55:47 by ayblin            #+#    #+#             */
-/*   Updated: 2022/04/17 14:48:23 by ayblin           ###   ########.fr       */
+/*   Updated: 2022/04/20 14:57:07 by ayblin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	gob_moove_up(t_long *m, int i, int j)
+void	gob_display_up(t_long *m, int i, int j)
 {
 	if (m->frame % 3 == 0)
 		mlx_put_image_to_window(m->mlx_ptr, m->win_ptr, m->gob[0],
@@ -25,7 +25,7 @@ void	gob_moove_up(t_long *m, int i, int j)
 			j * 32, i * 32);
 }
 
-void	gob_moove_down(t_long *m, int i, int j)
+void	gob_display_down(t_long *m, int i, int j)
 {
 	if (m->frame % 3 == 0)
 		mlx_put_image_to_window(m->mlx_ptr, m->win_ptr, m->gob[3],
@@ -38,7 +38,7 @@ void	gob_moove_down(t_long *m, int i, int j)
 			j * 32, i * 32);
 }
 
-void	gob_moove_right(t_long *m, int i, int j)
+void	gob_display_right(t_long *m, int i, int j)
 {
 	if (m->frame % 3 == 0)
 		mlx_put_image_to_window(m->mlx_ptr, m->win_ptr, m->gob[6],
@@ -51,7 +51,7 @@ void	gob_moove_right(t_long *m, int i, int j)
 			j * 32, i * 32);
 }
 
-void	gob_moove_left(t_long *m, int i, int j)
+void	gob_display_left(t_long *m, int i, int j)
 {
 	if (m->frame % 3 == 0)
 		mlx_put_image_to_window(m->mlx_ptr, m->win_ptr, m->gob[9],
