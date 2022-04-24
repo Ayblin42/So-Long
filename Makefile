@@ -22,7 +22,7 @@ SRCS        =   so_long.c \
 
 OBJS        =    ${SRCS:.c=.o}
 
-MLX            =    ../minilibx-linux/libmlx_Linux.a
+MLX            =    minilibx-linux/libmlx_Linux.a
 
 MLXFLAGS    =    -lX11 -lXext -g3
 

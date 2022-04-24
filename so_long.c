@@ -6,7 +6,7 @@
 /*   By: ayblin <ayblin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 13:14:34 by ayblin            #+#    #+#             */
-/*   Updated: 2022/04/20 15:00:36 by ayblin           ###   ########.fr       */
+/*   Updated: 2022/04/23 19:52:59 by ayblin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,30 @@ char	*read_map(char *argv)
 
 	i = 0;
 	fd = open(argv, O_RDONLY);
+	if (fd < 1)
+		return (ftc_putstr("Failed to open file\n", 0));
 	while (read(fd, &c, 1) > 0)
 	{
 		str[i] = c;
 		i++;
 	}
 	str[i] = 0;
-	return (strdup(str));
+	if (!file_ber(argv, ft_strlen(argv)))
+		return (0);
+	return (ft_strdup(str));
+}
+
+int	file_ber(char *str, int	len)
+{
+	if (str[len - 1] != 'r')
+		return(ft_putstr("not a .ber file\n", 0));
+	if (str[len - 2] != 'e')
+		return(ft_putstr("not a .ber file\n", 0));
+	if (str[len - 3] != 'b')
+		return(ft_putstr("not a .ber file\n", 0));
+	if (str[len - 4] != '.')
+		return(ft_putstr("not a .ber file\n", 0));
+	return (1);
 }
 
 int	deal_key(int key, t_long *m)
@@ -93,10 +110,14 @@ int	main(int argc, char **argv)
 		return (0);
 	init_value(&m);
 	m.map = read_map(argv[1]);
+	if (!m.map)
+		return (close_window3(&m));
 	m.maptab = ft_split(m.map, '\n');
 	if (!is_valid_map(&m))
-		return (ft_putstr("Error\n", 0));
+		return (close_window4(&m));
 	m.mlx_ptr = mlx_init();
+	if (!m.mlx_ptr)
+		return (close_window4(&m));
 	m.win_ptr = mlx_new_window(m.mlx_ptr, m.width, m.height, "test");
 	if (m.width > WIDTH_LIMIT || m.height > HEIGHT_LIMIT)
 		close_window2(&m);

@@ -6,7 +6,7 @@
 /*   By: ayblin <ayblin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 22:23:50 by ayblin            #+#    #+#             */
-/*   Updated: 2022/04/20 14:57:23 by ayblin           ###   ########.fr       */
+/*   Updated: 2022/04/23 09:41:41 by ayblin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,17 @@ int	close_window2(t_long *m)
 	free(m->mlx_ptr);
 	ft_putstr("Error: size of map too big .\n", 0);
 	exit(0);
+}
+
+int	close_window3(t_long *m)
+{
+	free(m->map);
+	return (0);
+}
+
+int	close_window4(t_long *m)
+{
+	free(m->map);
+	free_tab(m->maptab);
+	return (0);
 }

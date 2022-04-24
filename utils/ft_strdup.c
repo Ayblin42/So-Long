@@ -1,44 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayblin <ayblin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/14 03:56:14 by ayblin            #+#    #+#             */
-/*   Updated: 2022/04/23 09:44:58 by ayblin           ###   ########.fr       */
+/*   Created: 2022/04/23 05:16:12 by ayblin            #+#    #+#             */
+/*   Updated: 2022/04/23 19:22:30 by ayblin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	ft_putchar(char c)
+char	*ft_strdup(char *src)
 {
-	write(1, &c, 1);
-}
+	int		i;
+	int		len;
+	char	*str;
 
-int	ft_putstr(char *str, int ret)
-{
-	int	i;
-
+	len = 0;
+	while (src[len])
+		len++;
+	str = (char *)malloc(sizeof(*str) * (len + 1));
 	i = 0;
-	while (*(str + i) != '\0')
+	while (i < len)
 	{
-		ft_putchar(*(str + i));
+		str[i] = src[i];
 		i++;
 	}
-	return (ret);
-}
-
-char	*ftc_putstr(char *str, char *ret)
-{
-	int	i;
-
-	i = 0;
-	while (*(str + i) != '\0')
-	{
-		ft_putchar(*(str + i));
-		i++;
-	}
-	return (ret);
+	return (str);
 }
